@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block title %}<title>Ресторан</title>{% endblock %}
+
+    {% load static %}
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<header class="header">
+    <div class="header__text">
+        <a class="rest" href="{% url 'index' %} ">Головна</a>
+        <a class="rest" href="{% url 'about' %} ">Про нас</a>
+        <a class="rest reg" href="{% url 'register' %} ">Зареєструватися</a> <a class="rest reg" href="{% url 'login' %} ">Вхід</a>
+
+    </div>
+</header>
+<body>
+    <main>
+        {% block content %} {% endblock %}
+
+
+    </main>
+<script src="{% static '/js/filter.js' %}"></script>
+<script src="{% static 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js' %}"></script>
+</body>
+<footer class="footer">
+    Політика конфіденційності
+</footer>
+</html>

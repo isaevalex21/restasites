@@ -1,0 +1,70 @@
+ {% extends 'main.html' %}
+ {% load static %}
+
+{% block content %}
+ <div class="filter__cards" xmlns="http://www.w3.org/1999/html">
+
+            <div class="filter__block_1">
+
+               <button class="button button_type_brk" data-filter="brk">
+                   <div class="image_item"><img class="im-it-1" src="{% static '/images/BRK.png' %}" alt=""></div>
+                   <div class="filter__title">Сніданок</div>
+                </div>
+            </button>
+     <button class="button button_type_lun" data-filter="lun">
+            <div class="filter__block">
+                <div class="image_item"><img class="im-it"src=" {% static '/images/LUN.png' %}" alt=""></div>
+                <div class="filter__title">Обід</div>
+            </div>
+     </button>
+     <button class="button button_type_din" data-filter="din">
+            <div class="filter__block">
+                <div class="image_item"><img class="im-it" src="{% static '/images/DIN.png' %}" alt=""></div>
+                <div class="filter__title">Вечеря</div>
+            </div>
+     </button>
+
+
+        </div>
+        <div class="cards">
+            {% for item in menu_brk %}
+            <div class="card__items brk">
+                <div class="card__image"><img class="img-element" src="{{ MEDIA_URL }} {{ item.image.url }}" alt="{{ item.title }}"></div>
+                <div class="card__title">{{ item.title }}</div>
+                <div class="card__description">{{ item.description }}</div>
+                <div class="price">Ціна: {{ item.price }} грн</div>
+
+            </div>
+            {% endfor %}
+            {% for item in menu_lun %}
+            <div class="card__items lun">
+                <div class="card__image"><img class="img-element" src="{{ MEDIA_URL }} {{ item.image.url }}" alt="{{ item.title }}"></div>
+                <div class="card__title">{{ item.title }}</div>
+                <div class="card__description">{{ item.description }}</div>
+                <div class="price">Ціна: {{ item.price }} грн</div>
+
+            </div>
+            {% endfor %}
+            {% for item in menu_din %}
+            <div class="card__items din" >
+                <div class="card__image"><img class="img-element" src="{{ MEDIA_URL }} {{ item.image.url }}" alt="{{ item.title }}"></div>
+                <div class="card__title">{{ item.title }} </div>
+                <div class="card__description">{{ item.description }}</div>
+                <div class="price">Ціна: {{ item.price }} грн</div>
+            </div>
+            {% endfor %}
+        </div>
+
+{% for item in menu_brk %}
+  <div id="popup" class="popup">
+      <div class="popup__body">
+          <div class="popup__content">
+            <a href="#" class="popup__close">X</a>
+              <div class=" popup__text">{{ item.description }}</div>
+          </div>
+      </div>
+  </div>
+ {% endfor%}
+
+
+ {% endblock %}
